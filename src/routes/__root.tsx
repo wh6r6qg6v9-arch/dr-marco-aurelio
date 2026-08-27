@@ -84,12 +84,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         >
           Tentar novamente
         </button>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-primary/25 bg-card px-6 py-3 font-semibold text-primary hover:bg-accent"
         >
           Ir para o início
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.ico`, type: "image/x-icon" },
     ],
     scripts: [
       {

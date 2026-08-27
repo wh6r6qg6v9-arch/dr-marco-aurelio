@@ -17,6 +17,7 @@ import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as ConteudosColesterolRiscoCardiovascularRouteImport } from './routes/conteudos.colesterol-risco-cardiovascular'
+import { Route as ConteudosComoSePrepararTeleconsultaRouteImport } from './routes/conteudos.como-se-preparar-teleconsulta'
 import { Route as ConteudosQuandoProcurarCardiologistaRouteImport } from './routes/conteudos.quando-procurar-cardiologista'
 
 const IndexRoute = IndexRouteImport.update({
@@ -60,6 +61,12 @@ const ConteudosColesterolRiscoCardiovascularRoute =
     path: '/conteudos/colesterol-risco-cardiovascular',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosComoSePrepararTeleconsultaRoute =
+  ConteudosComoSePrepararTeleconsultaRouteImport.update({
+    id: '/conteudos/como-se-preparar-teleconsulta',
+    path: '/conteudos/como-se-preparar-teleconsulta',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosQuandoProcurarCardiologistaRoute =
   ConteudosQuandoProcurarCardiologistaRouteImport.update({
     id: '/conteudos/quando-procurar-cardiologista',
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
   '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/como-se-preparar-teleconsulta': typeof ConteudosComoSePrepararTeleconsultaRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
   '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/como-se-preparar-teleconsulta': typeof ConteudosComoSePrepararTeleconsultaRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos': typeof ConteudosIndexRoute
 }
@@ -98,6 +107,7 @@ export interface FileRoutesById {
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
   '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/como-se-preparar-teleconsulta': typeof ConteudosComoSePrepararTeleconsultaRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/teleconsulta'
     | '/trajetoria'
     | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/como-se-preparar-teleconsulta'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
@@ -122,6 +133,7 @@ export interface FileRouteTypes {
     | '/teleconsulta'
     | '/trajetoria'
     | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/como-se-preparar-teleconsulta'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos'
   id:
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/teleconsulta'
     | '/trajetoria'
     | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/como-se-preparar-teleconsulta'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesById: FileRoutesById
@@ -145,6 +158,7 @@ export interface RootRouteChildren {
   TeleconsultaRoute: typeof TeleconsultaRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
   ConteudosColesterolRiscoCardiovascularRoute: typeof ConteudosColesterolRiscoCardiovascularRoute
+  ConteudosComoSePrepararTeleconsultaRoute: typeof ConteudosComoSePrepararTeleconsultaRoute
   ConteudosQuandoProcurarCardiologistaRoute: typeof ConteudosQuandoProcurarCardiologistaRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
@@ -207,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosColesterolRiscoCardiovascularRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/como-se-preparar-teleconsulta': {
+      id: '/conteudos/como-se-preparar-teleconsulta'
+      path: '/conteudos/como-se-preparar-teleconsulta'
+      fullPath: '/conteudos/como-se-preparar-teleconsulta'
+      preLoaderRoute: typeof ConteudosComoSePrepararTeleconsultaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/quando-procurar-cardiologista': {
       id: '/conteudos/quando-procurar-cardiologista'
       path: '/conteudos/quando-procurar-cardiologista'
@@ -226,6 +247,8 @@ const rootRouteChildren: RootRouteChildren = {
   TrajetoriaRoute: TrajetoriaRoute,
   ConteudosColesterolRiscoCardiovascularRoute:
     ConteudosColesterolRiscoCardiovascularRoute,
+  ConteudosComoSePrepararTeleconsultaRoute:
+    ConteudosComoSePrepararTeleconsultaRoute,
   ConteudosQuandoProcurarCardiologistaRoute:
     ConteudosQuandoProcurarCardiologistaRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
