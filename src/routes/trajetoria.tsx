@@ -117,9 +117,9 @@ const chapters: Chapter[] = [
     title: "Hospital e gestão de serviços",
     lead: "A experiência hospitalar inclui terapia intensiva, imagem cardíaca e coordenação de programas de residência médica.",
     milestones: [
-      "Diretor Clínico do Hospital Estadual de Goiânia (HEG)",
+      "Diretor Clínico do Hospital Evangélico Goiano (HEG)",
       "Coordenador da Residência em Cardiologia do HEG desde 2011",
-      "Coordenador do Serviço de Cardiologia, do COREME e do Núcleo de Ensino, Pesquisa e Extensão do Hospital Estadual de Anápolis",
+      "Coordenador do Serviço de Cardiologia, da COREME e do Núcleo de Ensino, Pesquisa e Extensão do Hospital Estadual de Anápolis",
     ],
     details: {
       title: "Funções anteriores",
