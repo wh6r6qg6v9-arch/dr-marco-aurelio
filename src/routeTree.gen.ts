@@ -16,6 +16,7 @@ import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as ConteudosColesterolRiscoCardiovascularRouteImport } from './routes/conteudos.colesterol-risco-cardiovascular'
 import { Route as ConteudosQuandoProcurarCardiologistaRouteImport } from './routes/conteudos.quando-procurar-cardiologista'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,12 @@ const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
   path: '/conteudos/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosColesterolRiscoCardiovascularRoute =
+  ConteudosColesterolRiscoCardiovascularRouteImport.update({
+    id: '/conteudos/colesterol-risco-cardiovascular',
+    path: '/conteudos/colesterol-risco-cardiovascular',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosQuandoProcurarCardiologistaRoute =
   ConteudosQuandoProcurarCardiologistaRouteImport.update({
     id: '/conteudos/quando-procurar-cardiologista',
@@ -67,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
@@ -77,6 +85,7 @@ export interface FileRoutesByTo {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos': typeof ConteudosIndexRoute
 }
@@ -88,6 +97,7 @@ export interface FileRoutesById {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
   '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
@@ -110,6 +121,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos'
   id:
@@ -120,6 +132,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
     | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesById: FileRoutesById
@@ -131,6 +144,7 @@ export interface RootRouteChildren {
   PrivacidadeRoute: typeof PrivacidadeRoute
   TeleconsultaRoute: typeof TeleconsultaRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
+  ConteudosColesterolRiscoCardiovascularRoute: typeof ConteudosColesterolRiscoCardiovascularRoute
   ConteudosQuandoProcurarCardiologistaRoute: typeof ConteudosQuandoProcurarCardiologistaRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
@@ -186,6 +200,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/colesterol-risco-cardiovascular': {
+      id: '/conteudos/colesterol-risco-cardiovascular'
+      path: '/conteudos/colesterol-risco-cardiovascular'
+      fullPath: '/conteudos/colesterol-risco-cardiovascular'
+      preLoaderRoute: typeof ConteudosColesterolRiscoCardiovascularRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/quando-procurar-cardiologista': {
       id: '/conteudos/quando-procurar-cardiologista'
       path: '/conteudos/quando-procurar-cardiologista'
@@ -203,6 +224,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacidadeRoute: PrivacidadeRoute,
   TeleconsultaRoute: TeleconsultaRoute,
   TrajetoriaRoute: TrajetoriaRoute,
+  ConteudosColesterolRiscoCardiovascularRoute:
+    ConteudosColesterolRiscoCardiovascularRoute,
   ConteudosQuandoProcurarCardiologistaRoute:
     ConteudosQuandoProcurarCardiologistaRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
