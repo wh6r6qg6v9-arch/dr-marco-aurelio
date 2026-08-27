@@ -8,7 +8,7 @@ export function StickyCta() {
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card/98 p-3 shadow-lift backdrop-blur md:hidden">
         <a
           href={contact.whatsapp}
-          target="_blank"
+          target="_top"
           rel="noopener noreferrer"
           className="flex min-h-13 w-full items-center justify-center gap-2.5 rounded-md bg-whatsapp px-4 py-3 text-base font-semibold text-whatsapp-foreground"
         >
@@ -20,7 +20,7 @@ export function StickyCta() {
       {/* Desktop: botão discreto */}
       <a
         href={contact.whatsapp}
-        target="_blank"
+        target="_top"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 hidden min-h-12 items-center gap-2.5 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-whatsapp-foreground shadow-lift transition-colors hover:bg-whatsapp/90 md:inline-flex"
       >

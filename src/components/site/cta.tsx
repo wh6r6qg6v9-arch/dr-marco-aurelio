@@ -17,7 +17,7 @@ export function WhatsAppCta({
   return (
     <a
       href={contact.whatsapp}
-      target="_blank"
+      target="_top"
       rel="noopener noreferrer"
       className={cn(
         base,

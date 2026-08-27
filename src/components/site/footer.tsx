@@ -43,7 +43,7 @@ export function Footer() {
           </p>
           <a
             href={contact.whatsapp}
-            target="_blank"
+            target="_top"
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 py-3 font-semibold text-whatsapp-foreground hover:bg-whatsapp/90"
           >
