@@ -16,6 +16,7 @@ import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as ConteudosQuandoProcurarCardiologistaRouteImport } from './routes/conteudos.quando-procurar-cardiologista'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,12 @@ const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
   path: '/conteudos/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosQuandoProcurarCardiologistaRoute =
+  ConteudosQuandoProcurarCardiologistaRouteImport.update({
+    id: '/conteudos/quando-procurar-cardiologista',
+    path: '/conteudos/quando-procurar-cardiologista',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +77,7 @@ export interface FileRoutesByTo {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos': typeof ConteudosIndexRoute
 }
 export interface FileRoutesById {
@@ -79,6 +88,7 @@ export interface FileRoutesById {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
   '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +100,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +110,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos'
   id:
     | '__root__'
@@ -108,6 +120,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/quando-procurar-cardiologista'
     | '/conteudos/'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +131,7 @@ export interface RootRouteChildren {
   PrivacidadeRoute: typeof PrivacidadeRoute
   TeleconsultaRoute: typeof TeleconsultaRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
+  ConteudosQuandoProcurarCardiologistaRoute: typeof ConteudosQuandoProcurarCardiologistaRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
 
@@ -172,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/quando-procurar-cardiologista': {
+      id: '/conteudos/quando-procurar-cardiologista'
+      path: '/conteudos/quando-procurar-cardiologista'
+      fullPath: '/conteudos/quando-procurar-cardiologista'
+      preLoaderRoute: typeof ConteudosQuandoProcurarCardiologistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -182,6 +203,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacidadeRoute: PrivacidadeRoute,
   TeleconsultaRoute: TeleconsultaRoute,
   TrajetoriaRoute: TrajetoriaRoute,
+  ConteudosQuandoProcurarCardiologistaRoute:
+    ConteudosQuandoProcurarCardiologistaRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
 }
 export const routeTree = rootRouteImport
