@@ -10,33 +10,143 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgendamentoRouteImport } from './routes/agendamento'
+import { Route as AreasDeCuidadoRouteImport } from './routes/areas-de-cuidado'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
+import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
+import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as ConteudosColesterolRiscoCardiovascularRouteImport } from './routes/conteudos.colesterol-risco-cardiovascular'
+import { Route as ConteudosQuandoProcurarCardiologistaRouteImport } from './routes/conteudos.quando-procurar-cardiologista'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgendamentoRoute = AgendamentoRouteImport.update({
+  id: '/agendamento',
+  path: '/agendamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasDeCuidadoRoute = AreasDeCuidadoRouteImport.update({
+  id: '/areas-de-cuidado',
+  path: '/areas-de-cuidado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeleconsultaRoute = TeleconsultaRouteImport.update({
+  id: '/teleconsulta',
+  path: '/teleconsulta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrajetoriaRoute = TrajetoriaRouteImport.update({
+  id: '/trajetoria',
+  path: '/trajetoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
+  id: '/conteudos/',
+  path: '/conteudos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosColesterolRiscoCardiovascularRoute =
+  ConteudosColesterolRiscoCardiovascularRouteImport.update({
+    id: '/conteudos/colesterol-risco-cardiovascular',
+    path: '/conteudos/colesterol-risco-cardiovascular',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ConteudosQuandoProcurarCardiologistaRoute =
+  ConteudosQuandoProcurarCardiologistaRouteImport.update({
+    id: '/conteudos/quando-procurar-cardiologista',
+    path: '/conteudos/quando-procurar-cardiologista',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agendamento': typeof AgendamentoRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/teleconsulta': typeof TeleconsultaRoute
+  '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agendamento': typeof AgendamentoRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/teleconsulta': typeof TeleconsultaRoute
+  '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
+  '/conteudos': typeof ConteudosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agendamento': typeof AgendamentoRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/teleconsulta': typeof TeleconsultaRoute
+  '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/colesterol-risco-cardiovascular': typeof ConteudosColesterolRiscoCardiovascularRoute
+  '/conteudos/quando-procurar-cardiologista': typeof ConteudosQuandoProcurarCardiologistaRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agendamento'
+    | '/areas-de-cuidado'
+    | '/privacidade'
+    | '/teleconsulta'
+    | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/quando-procurar-cardiologista'
+    | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agendamento'
+    | '/areas-de-cuidado'
+    | '/privacidade'
+    | '/teleconsulta'
+    | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/quando-procurar-cardiologista'
+    | '/conteudos'
+  id:
+    | '__root__'
+    | '/'
+    | '/agendamento'
+    | '/areas-de-cuidado'
+    | '/privacidade'
+    | '/teleconsulta'
+    | '/trajetoria'
+    | '/conteudos/colesterol-risco-cardiovascular'
+    | '/conteudos/quando-procurar-cardiologista'
+    | '/conteudos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendamentoRoute: typeof AgendamentoRoute
+  AreasDeCuidadoRoute: typeof AreasDeCuidadoRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  TeleconsultaRoute: typeof TeleconsultaRoute
+  TrajetoriaRoute: typeof TrajetoriaRoute
+  ConteudosColesterolRiscoCardiovascularRoute: typeof ConteudosColesterolRiscoCardiovascularRoute
+  ConteudosQuandoProcurarCardiologistaRoute: typeof ConteudosQuandoProcurarCardiologistaRoute
+  ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +158,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agendamento': {
+      id: '/agendamento'
+      path: '/agendamento'
+      fullPath: '/agendamento'
+      preLoaderRoute: typeof AgendamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-de-cuidado': {
+      id: '/areas-de-cuidado'
+      path: '/areas-de-cuidado'
+      fullPath: '/areas-de-cuidado'
+      preLoaderRoute: typeof AreasDeCuidadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teleconsulta': {
+      id: '/teleconsulta'
+      path: '/teleconsulta'
+      fullPath: '/teleconsulta'
+      preLoaderRoute: typeof TeleconsultaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trajetoria': {
+      id: '/trajetoria'
+      path: '/trajetoria'
+      fullPath: '/trajetoria'
+      preLoaderRoute: typeof TrajetoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/': {
+      id: '/conteudos/'
+      path: '/conteudos'
+      fullPath: '/conteudos/'
+      preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/colesterol-risco-cardiovascular': {
+      id: '/conteudos/colesterol-risco-cardiovascular'
+      path: '/conteudos/colesterol-risco-cardiovascular'
+      fullPath: '/conteudos/colesterol-risco-cardiovascular'
+      preLoaderRoute: typeof ConteudosColesterolRiscoCardiovascularRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/quando-procurar-cardiologista': {
+      id: '/conteudos/quando-procurar-cardiologista'
+      path: '/conteudos/quando-procurar-cardiologista'
+      fullPath: '/conteudos/quando-procurar-cardiologista'
+      preLoaderRoute: typeof ConteudosQuandoProcurarCardiologistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendamentoRoute: AgendamentoRoute,
+  AreasDeCuidadoRoute: AreasDeCuidadoRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  TeleconsultaRoute: TeleconsultaRoute,
+  TrajetoriaRoute: TrajetoriaRoute,
+  ConteudosColesterolRiscoCardiovascularRoute:
+    ConteudosColesterolRiscoCardiovascularRoute,
+  ConteudosQuandoProcurarCardiologistaRoute:
+    ConteudosQuandoProcurarCardiologistaRoute,
+  ConteudosIndexRoute: ConteudosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
