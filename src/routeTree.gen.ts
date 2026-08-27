@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgendamentoRouteImport } from './routes/agendamento'
 import { Route as AreasDeCuidadoRouteImport } from './routes/areas-de-cuidado'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
 
@@ -30,6 +31,11 @@ const AreasDeCuidadoRoute = AreasDeCuidadoRouteImport.update({
   path: '/areas-de-cuidado',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeleconsultaRoute = TeleconsultaRouteImport.update({
   id: '/teleconsulta',
   path: '/teleconsulta',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
   '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
   '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
@@ -60,21 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
   '/areas-de-cuidado': typeof AreasDeCuidadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/agendamento' | '/areas-de-cuidado' | '/teleconsulta' | '/trajetoria'
+    | '/'
+    | '/agendamento'
+    | '/areas-de-cuidado'
+    | '/privacidade'
+    | '/teleconsulta'
+    | '/trajetoria'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/agendamento' | '/areas-de-cuidado' | '/teleconsulta' | '/trajetoria'
+    | '/'
+    | '/agendamento'
+    | '/areas-de-cuidado'
+    | '/privacidade'
+    | '/teleconsulta'
+    | '/trajetoria'
   id:
     | '__root__'
     | '/'
     | '/agendamento'
     | '/areas-de-cuidado'
+    | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
   fileRoutesById: FileRoutesById
@@ -83,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgendamentoRoute: typeof AgendamentoRoute
   AreasDeCuidadoRoute: typeof AreasDeCuidadoRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   TeleconsultaRoute: typeof TeleconsultaRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
 }
@@ -110,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AreasDeCuidadoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teleconsulta': {
       id: '/teleconsulta'
       path: '/teleconsulta'
@@ -131,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgendamentoRoute: AgendamentoRoute,
   AreasDeCuidadoRoute: AreasDeCuidadoRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   TeleconsultaRoute: TeleconsultaRoute,
   TrajetoriaRoute: TrajetoriaRoute,
 }
