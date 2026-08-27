@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AreasDeCuidadoRouteImport } from './routes/areas-de-cuidado'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasDeCuidadoRoute = AreasDeCuidadoRouteImport.update({
+  id: '/areas-de-cuidado',
+  path: '/areas-de-cuidado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrajetoriaRoute = TrajetoriaRouteImport.update({
@@ -25,27 +31,31 @@ const TrajetoriaRoute = TrajetoriaRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-de-cuidado': typeof AreasDeCuidadoRoute
   '/trajetoria': typeof TrajetoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/trajetoria'
+  fullPaths: '/' | '/areas-de-cuidado' | '/trajetoria'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/trajetoria'
-  id: '__root__' | '/' | '/trajetoria'
+  to: '/' | '/areas-de-cuidado' | '/trajetoria'
+  id: '__root__' | '/' | '/areas-de-cuidado' | '/trajetoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasDeCuidadoRoute: typeof AreasDeCuidadoRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-de-cuidado': {
+      id: '/areas-de-cuidado'
+      path: '/areas-de-cuidado'
+      fullPath: '/areas-de-cuidado'
+      preLoaderRoute: typeof AreasDeCuidadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trajetoria': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasDeCuidadoRoute: AreasDeCuidadoRoute,
   TrajetoriaRoute: TrajetoriaRoute,
 }
 export const routeTree = rootRouteImport
