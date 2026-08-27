@@ -15,6 +15,7 @@ import { Route as AreasDeCuidadoRouteImport } from './routes/areas-de-cuidado'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as TeleconsultaRouteImport } from './routes/teleconsulta'
 import { Route as TrajetoriaRouteImport } from './routes/trajetoria'
+import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const TrajetoriaRoute = TrajetoriaRouteImport.update({
   path: '/trajetoria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
+  id: '/conteudos/',
+  path: '/conteudos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos': typeof ConteudosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/privacidade': typeof PrivacidadeRoute
   '/teleconsulta': typeof TeleconsultaRoute
   '/trajetoria': typeof TrajetoriaRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/teleconsulta'
     | '/trajetoria'
+    | '/conteudos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   PrivacidadeRoute: typeof PrivacidadeRoute
   TeleconsultaRoute: typeof TeleconsultaRoute
   TrajetoriaRoute: typeof TrajetoriaRoute
+  ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrajetoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/': {
+      id: '/conteudos/'
+      path: '/conteudos'
+      fullPath: '/conteudos/'
+      preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacidadeRoute: PrivacidadeRoute,
   TeleconsultaRoute: TeleconsultaRoute,
   TrajetoriaRoute: TrajetoriaRoute,
+  ConteudosIndexRoute: ConteudosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
