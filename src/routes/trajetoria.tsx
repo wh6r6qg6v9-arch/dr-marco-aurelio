@@ -8,6 +8,7 @@ import {
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CredentialLine } from "@/components/site/identity";
 import { CtaSection } from "@/components/site/cta-section";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/trajetoria")({
   head: () => ({
@@ -24,9 +25,9 @@ export const Route = createFileRoute("/trajetoria")({
         content:
           "Uma trajetória dedicada à ciência, ao ensino e ao cuidado: formação clínica, pesquisa em imagem cardiovascular, docência e gestão hospitalar.",
       },
-      { property: "og:url", content: "/trajetoria" },
+      { property: "og:url", content: absoluteUrl("/trajetoria") },
     ],
-    links: [{ rel: "canonical", href: "/trajetoria" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/trajetoria") }],
   }),
   component: TrajectoryPage,
 });

@@ -3,7 +3,13 @@ import { Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "./breadcrumbs";
 import { EmergencyNotice } from "./notices";
 import { WhatsAppCta } from "./cta";
-import { articles, doctor, EDUCATIONAL_DISCLAIMER, type Article } from "@/lib/site";
+import {
+  absoluteUrl,
+  articles,
+  doctor,
+  EDUCATIONAL_DISCLAIMER,
+  type Article,
+} from "@/lib/site";
 
 export function ArticleLayout({
   article,
@@ -118,6 +124,8 @@ export function articleJsonLd(article: Article) {
     "@type": "Article",
     headline: article.title,
     description: article.summary,
+    url: absoluteUrl(article.path),
+    mainEntityOfPage: absoluteUrl(article.path),
     datePublished: article.publishedAt,
     dateModified: article.reviewedAt,
     inLanguage: "pt-BR",

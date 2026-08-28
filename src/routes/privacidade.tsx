@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { AdminChannelNotice, EmergencyNotice } from "@/components/site/notices";
-import { contact, doctor } from "@/lib/site";
+import { absoluteUrl, contact, doctor } from "@/lib/site";
 
 export const Route = createFileRoute("/privacidade")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/privacidade")({
         content:
           "Este site não coleta dados de saúde e não possui formulários. Entenda como as informações são tratadas.",
       },
-      { property: "og:url", content: "/privacidade" },
+      { property: "og:url", content: absoluteUrl("/privacidade") },
     ],
-    links: [{ rel: "canonical", href: "/privacidade" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/privacidade") }],
   }),
   component: PrivacyPage,
 });

@@ -2,7 +2,13 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CtaSection } from "@/components/site/cta-section";
-import { allTopics, articles, doctor, EDUCATIONAL_DISCLAIMER } from "@/lib/site";
+import {
+  absoluteUrl,
+  allTopics,
+  articles,
+  doctor,
+  EDUCATIONAL_DISCLAIMER,
+} from "@/lib/site";
 
 export const Route = createFileRoute("/conteudos/")({
   head: () => ({
@@ -19,9 +25,9 @@ export const Route = createFileRoute("/conteudos/")({
         content:
           "Textos educativos sobre saúde do coração, escritos em linguagem clara e sem promessas.",
       },
-      { property: "og:url", content: "/conteudos" },
+      { property: "og:url", content: absoluteUrl("/conteudos") },
     ],
-    links: [{ rel: "canonical", href: "/conteudos" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/conteudos") }],
   }),
   component: ContentsPage,
 });

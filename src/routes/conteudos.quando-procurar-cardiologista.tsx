@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArticleLayout, articleJsonLd } from "@/components/site/article-layout";
-import { articles } from "@/lib/site";
+import { absoluteUrl, articles } from "@/lib/site";
 
 const article = articles.find((a) => a.slug === "quando-procurar-cardiologista")!;
 
@@ -12,9 +12,9 @@ export const Route = createFileRoute("/conteudos/quando-procurar-cardiologista")
       { property: "og:title", content: article.title },
       { property: "og:description", content: article.summary },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: article.path },
+      { property: "og:url", content: absoluteUrl(article.path) },
     ],
-    links: [{ rel: "canonical", href: article.path }],
+    links: [{ rel: "canonical", href: absoluteUrl(article.path) }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(articleJsonLd(article)) }],
   }),
   component: ArticlePage,

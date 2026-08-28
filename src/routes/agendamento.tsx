@@ -8,7 +8,7 @@ import {
   InPersonNotice,
 } from "@/components/site/notices";
 import { CredentialBlock } from "@/components/site/identity";
-import { contact } from "@/lib/site";
+import { absoluteUrl, contact } from "@/lib/site";
 
 export const Route = createFileRoute("/agendamento")({
   head: () => ({
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/agendamento")({
         content:
           "Três passos simples para agendar sua teleconsulta com o Dr. Marco Aurélio Santos Cordeiro pelo WhatsApp da secretária.",
       },
-      { property: "og:url", content: "/agendamento" },
+      { property: "og:url", content: absoluteUrl("/agendamento") },
     ],
-    links: [{ rel: "canonical", href: "/agendamento" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/agendamento") }],
   }),
   component: SchedulingPage,
 });

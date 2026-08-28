@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://dr.marco.cordeirocardio.com.br/sitemap.xml

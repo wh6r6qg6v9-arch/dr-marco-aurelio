@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CtaSection } from "@/components/site/cta-section";
 import { EmergencyNotice, InPersonNotice } from "@/components/site/notices";
 import { CredentialLine } from "@/components/site/identity";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/areas-de-cuidado")({
   head: () => ({
@@ -19,9 +20,9 @@ export const Route = createFileRoute("/areas-de-cuidado")({
         content:
           "Como a teleconsulta cardiológica pode ajudar em prevenção, colesterol, doença coronariana, insuficiência cardíaca e cardio-oncologia.",
       },
-      { property: "og:url", content: "/areas-de-cuidado" },
+      { property: "og:url", content: absoluteUrl("/areas-de-cuidado") },
     ],
-    links: [{ rel: "canonical", href: "/areas-de-cuidado" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/areas-de-cuidado") }],
   }),
   component: AreasPage,
 });

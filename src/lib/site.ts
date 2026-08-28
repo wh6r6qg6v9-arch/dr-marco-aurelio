@@ -1,3 +1,10 @@
+export const SITE_URL = "https://dr.marco.cordeirocardio.com.br";
+
+export function absoluteUrl(path = "/") {
+  const normalizedPath = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
+  return `${SITE_URL}${normalizedPath}`;
+}
+
 export const doctor = {
   name: "Dr. Marco Aurélio Santos Cordeiro",
   role: "MÉDICO",
@@ -90,6 +97,8 @@ export const allTopics = Array.from(new Set(articles.flatMap((a) => a.topics))).
 export const physicianJsonLd = {
   "@context": "https://schema.org",
   "@type": "Physician",
+  "@id": `${SITE_URL}/#physician`,
+  url: absoluteUrl(),
   name: doctor.name,
   medicalSpecialty: "Cardiovascular",
   telephone: "+55 62 98427-0577",

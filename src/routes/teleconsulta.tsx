@@ -8,6 +8,7 @@ import {
 } from "@/components/site/notices";
 import { WhatsAppCta } from "@/components/site/cta";
 import { CredentialLine } from "@/components/site/identity";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/teleconsulta")({
   head: () => ({
@@ -24,9 +25,9 @@ export const Route = createFileRoute("/teleconsulta")({
         content:
           "Consulta por vídeo com tempo para conversar, disponível para pacientes de diferentes regiões do Brasil. Agendamento pela secretária.",
       },
-      { property: "og:url", content: "/teleconsulta" },
+      { property: "og:url", content: absoluteUrl("/teleconsulta") },
     ],
-    links: [{ rel: "canonical", href: "/teleconsulta" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/teleconsulta") }],
   }),
   component: TeleconsultaPage,
 });

@@ -17,7 +17,7 @@ import { HeroArt } from "@/components/site/hero-art";
 import { WhatsAppCta } from "@/components/site/cta";
 import { CtaSection } from "@/components/site/cta-section";
 import { EmergencyNotice, InPersonNotice } from "@/components/site/notices";
-import { articles, doctor } from "@/lib/site";
+import { absoluteUrl, articles, doctor } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,9 +37,9 @@ export const Route = createFileRoute("/")({
         content:
           "Teleconsultas cardiológicas com tempo para conversar, compreender o contexto e explicar decisões. CRM-GO 7104 · RQE 4255.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl() },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl() }],
   }),
   component: HomePage,
 });
