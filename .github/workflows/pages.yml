@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SITE_BASE_PATH: /
     steps:
       - name: Baixar o código
         uses: actions/checkout@v6

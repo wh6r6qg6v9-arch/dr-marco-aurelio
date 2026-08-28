@@ -6,7 +6,9 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const base = process.env.GITHUB_ACTIONS ? "/dr-marco-aurelio/" : "/";
+const base =
+  process.env.SITE_BASE_PATH ??
+  (process.env.GITHUB_ACTIONS ? "/dr-marco-aurelio/" : "/");
 
 export default defineConfig({
   nitro: process.env.GITHUB_ACTIONS ? false : undefined,
