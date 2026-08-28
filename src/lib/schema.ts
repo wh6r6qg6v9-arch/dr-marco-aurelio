@@ -59,7 +59,10 @@ export const siteGraphJsonLd = {
         name: "Universidade Evangélica de Goiás — UniEVANGÉLICA",
         url: "https://www4.unievangelica.edu.br/",
       },
-      sameAs: ["https://www.escavador.com/sobre/1671182/marco-aurelio-santos-cordeiro"],
+      sameAs: [
+        "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4730399D2",
+        "https://www.escavador.com/sobre/1671182/marco-aurelio-santos-cordeiro",
+      ],
       subjectOf: [
         {
           "@type": "WebPage",
