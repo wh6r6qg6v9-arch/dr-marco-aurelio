@@ -67,7 +67,8 @@ export const siteGraphJsonLd = {
           url: "https://periodicos.unievangelica.edu.br/index.php/educacaoemsaude/about/editorialTeam",
         },
         {
-          "@type": "ScholarlyArticle",
+          "@type": "CreativeWork",
+          genre: "Artigo científico",
           name: "Efeitos tardios da radioterapia mediastinal sobre as valvas cardíacas: uma revisão narrativa",
           url: "https://periodicos.unievangelica.edu.br/index.php/educacaoemsaude/article/view/6640",
           sameAs: "https://doi.org/10.37951/2358-9868.2022v10i2.p95-102",
