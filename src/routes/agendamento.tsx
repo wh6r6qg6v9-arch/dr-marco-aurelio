@@ -9,6 +9,7 @@ import {
 } from "@/components/site/notices";
 import { CredentialBlock } from "@/components/site/identity";
 import { absoluteUrl, contact } from "@/lib/site";
+import { pageJsonLd, schemaIds } from "@/lib/schema";
 
 export const Route = createFileRoute("/agendamento")({
   head: () => ({
@@ -28,6 +29,24 @@ export const Route = createFileRoute("/agendamento")({
       { property: "og:url", content: absoluteUrl("/agendamento") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/agendamento") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/agendamento",
+            name: "Agendamento de teleconsulta cardiológica",
+            description:
+              "Orientações administrativas para agendar uma teleconsulta com o Dr. Marco Aurélio Santos Cordeiro pela secretária.",
+            mainEntityId: schemaIds.teleconsultation,
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Agendamento", path: "/agendamento" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: SchedulingPage,
 });

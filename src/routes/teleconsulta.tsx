@@ -9,6 +9,7 @@ import {
 import { WhatsAppCta } from "@/components/site/cta";
 import { CredentialLine } from "@/components/site/identity";
 import { absoluteUrl } from "@/lib/site";
+import { pageJsonLd, schemaIds } from "@/lib/schema";
 
 export const Route = createFileRoute("/teleconsulta")({
   head: () => ({
@@ -28,6 +29,24 @@ export const Route = createFileRoute("/teleconsulta")({
       { property: "og:url", content: absoluteUrl("/teleconsulta") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/teleconsulta") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/teleconsulta",
+            name: "Teleconsulta cardiológica",
+            description:
+              "Atendimento cardiológico por vídeo para pacientes de diferentes regiões do Brasil, com agendamento pela secretária.",
+            mainEntityId: schemaIds.teleconsultation,
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Teleconsulta", path: "/teleconsulta" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: TeleconsultaPage,
 });

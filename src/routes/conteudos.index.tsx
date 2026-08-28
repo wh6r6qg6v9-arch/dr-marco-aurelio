@@ -9,6 +9,7 @@ import {
   doctor,
   EDUCATIONAL_DISCLAIMER,
 } from "@/lib/site";
+import { pageJsonLd } from "@/lib/schema";
 
 export const Route = createFileRoute("/conteudos/")({
   head: () => ({
@@ -28,6 +29,25 @@ export const Route = createFileRoute("/conteudos/")({
       { property: "og:url", content: absoluteUrl("/conteudos") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/conteudos") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/conteudos",
+            type: "CollectionPage",
+            name: "Conteúdos educativos em cardiologia",
+            description:
+              "Artigos educativos sobre prevenção, colesterol, risco cardiovascular e teleconsulta, escritos e revisados pelo Dr. Marco Aurélio Santos Cordeiro.",
+            includeArticleList: true,
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Conteúdos", path: "/conteudos" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: ContentsPage,
 });

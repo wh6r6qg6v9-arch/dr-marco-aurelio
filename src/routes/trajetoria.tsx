@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { CredentialLine } from "@/components/site/identity";
 import { CtaSection } from "@/components/site/cta-section";
 import { absoluteUrl } from "@/lib/site";
+import { pageJsonLd, schemaIds } from "@/lib/schema";
 
 export const Route = createFileRoute("/trajetoria")({
   head: () => ({
@@ -28,6 +29,25 @@ export const Route = createFileRoute("/trajetoria")({
       { property: "og:url", content: absoluteUrl("/trajetoria") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/trajetoria") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/trajetoria",
+            type: "ProfilePage",
+            name: "Trajetória — Dr. Marco Aurélio Santos Cordeiro",
+            description:
+              "Formação clínica, pesquisa internacional, docência e gestão hospitalar do Dr. Marco Aurélio Santos Cordeiro.",
+            mainEntityId: schemaIds.doctor,
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Trajetória", path: "/trajetoria" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: TrajectoryPage,
 });

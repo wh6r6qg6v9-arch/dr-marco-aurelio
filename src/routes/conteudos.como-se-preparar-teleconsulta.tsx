@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArticleLayout, articleJsonLd } from "@/components/site/article-layout";
+import { ArticleLayout } from "@/components/site/article-layout";
 import { absoluteUrl, articles } from "@/lib/site";
+import { articleJsonLd } from "@/lib/schema";
 
 const article = articles.find((a) => a.slug === "como-se-preparar-teleconsulta")!;
 

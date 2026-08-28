@@ -4,6 +4,7 @@ import { CtaSection } from "@/components/site/cta-section";
 import { EmergencyNotice, InPersonNotice } from "@/components/site/notices";
 import { CredentialLine } from "@/components/site/identity";
 import { absoluteUrl } from "@/lib/site";
+import { pageJsonLd, schemaIds } from "@/lib/schema";
 
 export const Route = createFileRoute("/areas-de-cuidado")({
   head: () => ({
@@ -23,6 +24,25 @@ export const Route = createFileRoute("/areas-de-cuidado")({
       { property: "og:url", content: absoluteUrl("/areas-de-cuidado") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/areas-de-cuidado") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/areas-de-cuidado",
+            type: "CollectionPage",
+            name: "Áreas de cuidado em cardiologia",
+            description:
+              "Cardiologia clínica e preventiva, colesterol, risco cardiovascular, doença coronariana, insuficiência cardíaca e cardio-oncologia.",
+            mainEntityId: schemaIds.doctor,
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Áreas de cuidado", path: "/areas-de-cuidado" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: AreasPage,
 });

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { AdminChannelNotice, EmergencyNotice } from "@/components/site/notices";
 import { absoluteUrl, contact, doctor } from "@/lib/site";
+import { pageJsonLd } from "@/lib/schema";
 
 export const Route = createFileRoute("/privacidade")({
   head: () => ({
@@ -21,6 +22,23 @@ export const Route = createFileRoute("/privacidade")({
       { property: "og:url", content: absoluteUrl("/privacidade") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/privacidade") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            path: "/privacidade",
+            name: "Política de privacidade",
+            description:
+              "Informações sobre privacidade, ausência de formulários e contato administrativo externo por WhatsApp ou telefone.",
+            breadcrumbs: [
+              { name: "Início", path: "/" },
+              { name: "Política de privacidade", path: "/privacidade" },
+            ],
+          }),
+        ),
+      },
+    ],
   }),
   component: PrivacyPage,
 });

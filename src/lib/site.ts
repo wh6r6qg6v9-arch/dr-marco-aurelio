@@ -7,6 +7,8 @@ export function absoluteUrl(path = "/") {
 
 export const doctor = {
   name: "Dr. Marco Aurélio Santos Cordeiro",
+  structuredName: "Marco Aurélio Santos Cordeiro",
+  honorificPrefix: "Dr.",
   role: "MÉDICO",
   specialty: "Médico Cardiologista",
   crm: "CRM-GO 7104",
@@ -93,22 +95,3 @@ export const articles: Article[] = [
 export const allTopics = Array.from(new Set(articles.flatMap((a) => a.topics))).sort((a, b) =>
   a.localeCompare(b, "pt-BR"),
 );
-
-export const physicianJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  "@id": `${SITE_URL}/#physician`,
-  url: absoluteUrl(),
-  name: doctor.name,
-  medicalSpecialty: "Cardiovascular",
-  telephone: "+55 62 98427-0577",
-  availableService: {
-    "@type": "MedicalProcedure",
-    name: "Teleconsulta cardiológica",
-  },
-  areaServed: { "@type": "Country", name: "Brasil" },
-  identifier: [
-    { "@type": "PropertyValue", name: "CRM", value: "CRM-GO 7104" },
-    { "@type": "PropertyValue", name: "RQE", value: "RQE 4255 — Goiás" },
-  ],
-};

@@ -18,6 +18,7 @@ import { WhatsAppCta } from "@/components/site/cta";
 import { CtaSection } from "@/components/site/cta-section";
 import { EmergencyNotice, InPersonNotice } from "@/components/site/notices";
 import { absoluteUrl, articles, doctor } from "@/lib/site";
+import { pageJsonLd } from "@/lib/schema";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,6 +41,18 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: absoluteUrl() },
     ],
     links: [{ rel: "canonical", href: absoluteUrl() }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          pageJsonLd({
+            name: "Dr. Marco Aurélio Santos Cordeiro — Cardiologista",
+            description:
+              "Cardiologia baseada em evidências, com tempo para ouvir você. Teleconsultas cardiológicas para pacientes de diferentes regiões do Brasil.",
+          }),
+        ),
+      },
+    ],
   }),
   component: HomePage,
 });

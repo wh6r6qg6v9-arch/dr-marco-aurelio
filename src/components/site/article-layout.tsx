@@ -4,7 +4,6 @@ import { Breadcrumbs } from "./breadcrumbs";
 import { EmergencyNotice } from "./notices";
 import { WhatsAppCta } from "./cta";
 import {
-  absoluteUrl,
   articles,
   doctor,
   EDUCATIONAL_DISCLAIMER,
@@ -116,23 +115,4 @@ export function ArticleLayout({
       </article>
     </>
   );
-}
-
-export function articleJsonLd(article: Article) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.summary,
-    url: absoluteUrl(article.path),
-    mainEntityOfPage: absoluteUrl(article.path),
-    datePublished: article.publishedAt,
-    dateModified: article.reviewedAt,
-    inLanguage: "pt-BR",
-    author: {
-      "@type": "Person",
-      name: doctor.name,
-      jobTitle: doctor.specialty,
-    },
-  };
 }

@@ -15,7 +15,8 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { StickyCta } from "@/components/site/sticky-cta";
 import { WhatsAppCta } from "@/components/site/cta";
-import { physicianJsonLd, doctor } from "@/lib/site";
+import { doctor } from "@/lib/site";
+import { siteGraphJsonLd } from "@/lib/schema";
 
 function NotFoundComponent() {
   return (
@@ -121,7 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(physicianJsonLd),
+        children: JSON.stringify(siteGraphJsonLd),
       },
     ],
   }),
