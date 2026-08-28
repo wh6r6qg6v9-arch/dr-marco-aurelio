@@ -60,7 +60,7 @@ export const siteGraphJsonLd = {
         url: "https://www4.unievangelica.edu.br/",
       },
       sameAs: [
-        "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4730399D2",
+        "http://lattes.cnpq.br/8994256434220774",
         "https://www.escavador.com/sobre/1671182/marco-aurelio-santos-cordeiro",
       ],
       subjectOf: [
