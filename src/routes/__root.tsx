@@ -104,7 +104,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: `${doctor.name} — Cardiologista | Teleconsulta` },
       { name: "description", content: doctor.tagline },
       { name: "author", content: doctor.name },
-      { property: "og:site_name", content: doctor.name },
+      { property: "og:site_name", content: doctor.siteName },
+      { name: "application-name", content: doctor.siteName },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -117,7 +118,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
       },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.png`, type: "image/png" },
+      {
+        rel: "icon",
+        href: `${import.meta.env.BASE_URL}favicon.png`,
+        type: "image/png",
+        sizes: "512x512",
+      },
     ],
     scripts: [
       {

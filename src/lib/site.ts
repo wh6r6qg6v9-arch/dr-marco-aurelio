@@ -9,6 +9,8 @@ export const doctor = {
   name: "Dr. Marco Aurélio Santos Cordeiro",
   structuredName: "Marco Aurélio Santos Cordeiro",
   honorificPrefix: "Dr.",
+  siteName: "Dr. Marco Aurélio",
+  siteAlternateNames: ["Dr. Marco Cordeiro", "Marco Aurélio Cordeiro", "Cordeiro Cardio"],
   role: "MÉDICO",
   specialty: "Médico Cardiologista",
   crm: "CRM-GO 7104",
