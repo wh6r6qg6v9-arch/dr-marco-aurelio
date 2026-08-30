@@ -101,9 +101,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${doctor.name} — Cardiologista | Teleconsulta` },
-      { name: "description", content: doctor.tagline },
+      { title: "Dr. Marco Cordeiro — Cardiologista online para Anápolis" },
+      {
+        name: "description",
+        content:
+          "Teleconsulta cardiológica para pacientes de Anápolis e de todo o Brasil. CRM-GO 7104 · RQE 4255.",
+      },
       { name: "author", content: doctor.name },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { property: "og:site_name", content: doctor.siteName },
       { name: "application-name", content: doctor.siteName },
       { property: "og:type", content: "website" },

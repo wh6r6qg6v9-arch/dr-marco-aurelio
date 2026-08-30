@@ -8,6 +8,25 @@ const IDS = {
 
 const doctorImageUrl = absoluteUrl("/images/dr-marco-aurelio-santos-cordeiro.jpeg");
 
+const anapolis = {
+  "@type": "City",
+  name: "Anápolis",
+  containedInPlace: {
+    "@type": "State",
+    name: "Goiás",
+    containedInPlace: { "@type": "Country", name: "Brasil" },
+  },
+} as const;
+
+const goias = {
+  "@type": "State",
+  name: "Goiás",
+  containedInPlace: { "@type": "Country", name: "Brasil" },
+} as const;
+
+const brasil = { "@type": "Country", name: "Brasil" } as const;
+const teleconsultationCoverage = [anapolis, goias, brasil] as const;
+
 export const siteGraphJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -19,6 +38,7 @@ export const siteGraphJsonLd = {
       honorificPrefix: doctor.honorificPrefix,
       jobTitle: doctor.specialty,
       description: doctor.tagline,
+      mainEntityOfPage: { "@id": `${absoluteUrl("/trajetoria")}#webpage` },
       image: {
         "@type": "ImageObject",
         "@id": `${SITE_URL}/#doctor-image`,
@@ -54,11 +74,61 @@ export const siteGraphJsonLd = {
           "Medicina baseada em evidências",
         ],
       },
-      affiliation: {
-        "@type": "CollegeOrUniversity",
-        name: "Universidade Evangélica de Goiás — UniEVANGÉLICA",
-        url: "https://www4.unievangelica.edu.br/",
-      },
+      knowsAbout: [
+        "Cardiologia clínica",
+        "Cardiologia preventiva",
+        "Prevenção de doenças cardiovasculares",
+        "Colesterol e distúrbios lipídicos",
+        "Avaliação de risco cardiovascular",
+        "Doença arterial coronariana",
+        "Aterosclerose",
+        "Insuficiência cardíaca",
+        "Cardio-oncologia",
+        "Tomografia computadorizada cardíaca",
+        "Ressonância magnética cardiovascular",
+        "Medicina baseada em evidências",
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "Título de Especialista em Cardiologia",
+          credentialCategory: "Título de especialista",
+          recognizedBy: [
+            { "@type": "Organization", name: "Sociedade Brasileira de Cardiologia" },
+            { "@type": "Organization", name: "Associação Médica Brasileira" },
+          ],
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "Doutorado em Ciências — Cardiologia",
+          credentialCategory: "Doutorado",
+          recognizedBy: {
+            "@type": "CollegeOrUniversity",
+            name: "Faculdade de Medicina da Universidade de São Paulo",
+          },
+        },
+      ],
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "Universidade Federal de Goiás" },
+        { "@type": "CollegeOrUniversity", name: "Universidade de São Paulo" },
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Johns Hopkins University School of Medicine",
+        },
+        { "@type": "CollegeOrUniversity", name: "Duke University" },
+        { "@type": "CollegeOrUniversity", name: "McMaster University" },
+      ],
+      worksFor: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Universidade Evangélica de Goiás — UniEVANGÉLICA",
+          url: "https://www4.unievangelica.edu.br/",
+        },
+        {
+          "@type": "Hospital",
+          name: "Hospital Estadual de Anápolis Dr. Henrique Santillo",
+        },
+      ],
       sameAs: [
         "http://lattes.cnpq.br/8994256434220774",
         "https://www.escavador.com/sobre/1671182/marco-aurelio-santos-cordeiro",
@@ -81,6 +151,11 @@ export const siteGraphJsonLd = {
           name: "Tese de doutorado — Programa de Pós-Graduação em Cardiologia da USP",
           url: "https://www.pgcardiologiausp.com.br/wp-content/uploads/2024/12/marco_aurlio_santos_cordeiro.pdf",
         },
+        {
+          "@type": "WebPage",
+          name: "Escala oficial do Hospital Estadual de Anápolis — Cardiologia",
+          url: "https://goias.gov.br/saude/escala-heana-junho-2026/",
+        },
       ],
     },
     {
@@ -99,14 +174,24 @@ export const siteGraphJsonLd = {
       "@id": IDS.teleconsultation,
       url: absoluteUrl("/teleconsulta"),
       name: "Teleconsulta cardiológica",
+      alternateName: [
+        "Consulta com cardiologista online",
+        "Teleconsulta com cardiologista para Anápolis",
+      ],
       serviceType: "Teleconsulta cardiológica",
       category: { "@id": "https://schema.org/Cardiovascular", name: "Cardiologia" },
       description:
-        "Atendimento cardiológico por vídeo, com agendamento administrativo pela secretária.",
+        "Atendimento cardiológico por vídeo para pacientes de Anápolis, Goiás e de outras regiões do Brasil, com agendamento administrativo pela secretária.",
       provider: { "@id": IDS.doctor },
-      areaServed: { "@type": "Country", name: "Brasil" },
+      areaServed: teleconsultationCoverage,
+      audience: {
+        "@type": "MedicalAudience",
+        audienceType: "Paciente",
+        geographicArea: teleconsultationCoverage,
+      },
       availableChannel: {
         "@type": "ServiceChannel",
+        name: "Teleconsulta por vídeo com agendamento pela secretária",
         serviceUrl: absoluteUrl("/agendamento"),
         servicePhone: {
           "@type": "ContactPoint",
@@ -124,7 +209,7 @@ type PageSchemaOptions = {
   path?: string;
   name: string;
   description: string;
-  type?: "WebPage" | "ProfilePage" | "CollectionPage";
+  type?: "WebPage" | "ProfilePage" | "CollectionPage" | "MedicalWebPage";
   breadcrumbs?: Array<{ name: string; path: string }>;
   mainEntityId?: string;
   includeArticleList?: boolean;
@@ -153,6 +238,23 @@ export function pageJsonLd({
       about: { "@id": IDS.doctor },
       ...(mainEntityId ? { mainEntity: { "@id": mainEntityId } } : {}),
       ...(breadcrumbs.length ? { breadcrumb: { "@id": `${pageUrl}#breadcrumb` } } : {}),
+      ...(mainEntityId === IDS.teleconsultation
+        ? {
+            spatialCoverage: teleconsultationCoverage,
+            audience: {
+              "@type": "MedicalAudience",
+              audienceType: "Paciente",
+              geographicArea: teleconsultationCoverage,
+            },
+          }
+        : {}),
+      ...(type === "MedicalWebPage"
+        ? {
+            lastReviewed: "2026-08-30",
+            reviewedBy: { "@id": IDS.doctor },
+            specialty: { "@id": "https://schema.org/Cardiovascular", name: "Cardiologia" },
+          }
+        : {}),
     },
   ];
 

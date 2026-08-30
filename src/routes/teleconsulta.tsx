@@ -14,17 +14,20 @@ import { pageJsonLd, schemaIds } from "@/lib/schema";
 export const Route = createFileRoute("/teleconsulta")({
   head: () => ({
     meta: [
-      { title: "Teleconsulta cardiológica — Como funciona e como se preparar" },
+      { title: "Cardiologista online para Anápolis | Dr. Marco Cordeiro" },
       {
         name: "description",
         content:
-          "O que é a teleconsulta cardiológica, para quem pode ser útil, como se preparar e quais situações exigem avaliação presencial ou atendimento de urgência.",
+          "Entenda como funciona a teleconsulta com o cardiologista Dr. Marco Cordeiro, disponível para pacientes de Anápolis e de todo o Brasil.",
       },
-      { property: "og:title", content: "Teleconsulta cardiológica — Dr. Marco Aurélio Santos Cordeiro" },
+      {
+        property: "og:title",
+        content: "Cardiologista online para Anápolis — Dr. Marco Cordeiro",
+      },
       {
         property: "og:description",
         content:
-          "Consulta por vídeo com tempo para conversar, disponível para pacientes de diferentes regiões do Brasil. Agendamento pela secretária.",
+          "Consulta cardiológica por vídeo para pacientes de Anápolis e de todo o Brasil. Agendamento pela secretária.",
       },
       { property: "og:url", content: absoluteUrl("/teleconsulta") },
     ],
@@ -35,9 +38,10 @@ export const Route = createFileRoute("/teleconsulta")({
         children: JSON.stringify(
           pageJsonLd({
             path: "/teleconsulta",
-            name: "Teleconsulta cardiológica",
+            type: "MedicalWebPage",
+            name: "Cardiologista online para Anápolis — Teleconsulta cardiológica",
             description:
-              "Atendimento cardiológico por vídeo para pacientes de diferentes regiões do Brasil, com agendamento pela secretária.",
+              "Atendimento cardiológico por vídeo para pacientes de Anápolis, Goiás e de outras regiões do Brasil, com agendamento pela secretária.",
             mainEntityId: schemaIds.teleconsultation,
             breadcrumbs: [
               { name: "Início", path: "/" },
@@ -59,12 +63,13 @@ function TeleconsultaPage() {
       <section className="container-page py-12 md:py-16">
         <p className="eyebrow">Teleconsulta</p>
         <h1 className="mt-4 max-w-3xl font-serif text-4xl text-primary md:text-5xl">
-          Teleconsulta cardiológica, com tempo para conversar
+          Teleconsulta com cardiologista para pacientes de Anápolis e de todo o Brasil
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-foreground/90">
-          A teleconsulta é um atendimento médico realizado por vídeo, em horário agendado. Ela está
-          disponível para pacientes de diferentes regiões do Brasil e permite uma conversa detalhada
-          sobre a sua história, seus exames já realizados e suas dúvidas.
+          Com uma trajetória profissional ligada a Anápolis, o Dr. Marco oferece atualmente
+          atendimento cardiológico por vídeo para pacientes da cidade e de outras regiões do Brasil.
+          A consulta acontece em horário agendado e permite uma conversa detalhada sobre sua história,
+          seus exames já realizados e suas dúvidas.
         </p>
         <CredentialLine className="mt-5" />
         <div className="mt-8">

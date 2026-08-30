@@ -14,11 +14,11 @@ import { pageJsonLd, schemaIds } from "@/lib/schema";
 export const Route = createFileRoute("/trajetoria")({
   head: () => ({
     meta: [
-      { title: "Trajetória — Dr. Marco Aurélio Santos Cordeiro, Cardiologista" },
+      { title: "Trajetória do Dr. Marco Cordeiro na Cardiologia em Anápolis" },
       {
         name: "description",
         content:
-          "Formação em Medicina pela UFG, Clínica Médica no HC-FMUSP, Cardiologia no InCor, doutorado na FMUSP, pesquisa na Johns Hopkins, ensino e coordenação hospitalar.",
+          "Formação no InCor e FMUSP, pesquisa na Johns Hopkins e atuação como professor e coordenador de serviços de Cardiologia em Anápolis.",
       },
       { property: "og:title", content: "Trajetória — Dr. Marco Aurélio Santos Cordeiro" },
       {

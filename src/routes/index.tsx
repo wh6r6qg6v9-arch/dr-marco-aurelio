@@ -23,20 +23,20 @@ import { pageJsonLd } from "@/lib/schema";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dr. Marco Aurélio Santos Cordeiro — Cardiologista | Teleconsulta no Brasil" },
+      { title: "Dr. Marco Cordeiro — Cardiologista online para Anápolis" },
       {
         name: "description",
         content:
-          "Cardiologia baseada em evidências, com tempo para ouvir você. Teleconsultas cardiológicas para pacientes de diferentes regiões do Brasil. Agendamento pelo WhatsApp.",
+          "Teleconsulta com o cardiologista Dr. Marco Aurélio Santos Cordeiro para pacientes de Anápolis e de todo o Brasil. CRM-GO 7104 · RQE 4255.",
       },
       {
         property: "og:title",
-        content: "Dr. Marco Aurélio Santos Cordeiro — Cardiologista | Teleconsulta",
+        content: "Dr. Marco Cordeiro — Cardiologista online para Anápolis",
       },
       {
         property: "og:description",
         content:
-          "Teleconsultas cardiológicas com tempo para conversar, compreender o contexto e explicar decisões. CRM-GO 7104 · RQE 4255.",
+          "Teleconsultas cardiológicas para pacientes de Anápolis e de todo o Brasil, com tempo para conversar e explicar decisões. CRM-GO 7104 · RQE 4255.",
       },
       { property: "og:url", content: absoluteUrl() },
     ],
@@ -46,9 +46,9 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify(
           pageJsonLd({
-            name: "Dr. Marco Aurélio Santos Cordeiro — Cardiologista",
+            name: "Dr. Marco Aurélio Santos Cordeiro — Cardiologista online para Anápolis",
             description:
-              "Cardiologia baseada em evidências, com tempo para ouvir você. Teleconsultas cardiológicas para pacientes de diferentes regiões do Brasil.",
+              "Teleconsulta cardiológica para pacientes de Anápolis, Goiás e de outras regiões do Brasil, com tempo para conversar e explicar decisões.",
           }),
         ),
       },
@@ -137,9 +137,10 @@ function HomePage() {
               {doctor.tagline}
             </p>
             <p className="mt-5 max-w-xl text-lg text-foreground/90">
-              As teleconsultas estão disponíveis para pacientes de diferentes regiões do Brasil, com
-              tempo para conversar, compreender o contexto de cada pessoa e explicar as decisões
-              tomadas em conjunto.
+              Com uma trajetória acadêmica e hospitalar construída também em Anápolis, o Dr. Marco
+              realiza atualmente teleconsultas para pacientes da cidade e de diferentes regiões do
+              Brasil, com tempo para conversar, compreender o contexto de cada pessoa e explicar as
+              decisões tomadas em conjunto.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <WhatsAppCta />
