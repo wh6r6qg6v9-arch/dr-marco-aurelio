@@ -103,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "VPw9oZR9Gimxj4kThi8pYnaUdGNc9nxfzWXvEVSlFLA" },
       { title: "Dr. Marco Cordeiro — Cardiologista online para Anápolis" },
       {
         name: "description",
