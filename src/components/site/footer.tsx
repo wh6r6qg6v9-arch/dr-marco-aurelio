@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { AlertTriangle, MessageCircle, Phone } from "lucide-react";
 import { contact, doctor, EDUCATIONAL_DISCLAIMER, EMERGENCY_TEXT, nav } from "@/lib/site";
+import { openCookiePreferences } from "@/lib/analytics";
 
 export function Footer() {
   return (
@@ -33,6 +34,15 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                type="button"
+                onClick={openCookiePreferences}
+                className="flex min-h-10 items-center text-left text-primary-foreground/90 underline-offset-4 hover:underline"
+              >
+                Preferências de cookies
+              </button>
+            </li>
           </ul>
         </nav>
 

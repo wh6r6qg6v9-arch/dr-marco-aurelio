@@ -54,7 +54,7 @@ function PrivacyPage() {
           Política de privacidade
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">
-          Última atualização: 26 de agosto de 2026
+          Última atualização: 30 de agosto de 2026
         </p>
 
         <div className="prose-article mt-8 text-foreground">
@@ -92,10 +92,33 @@ function PrivacyPage() {
 
           <h2>Cookies e medição de audiência</h2>
           <p>
-            O site utiliza apenas o armazenamento local do seu navegador para lembrar preferências de
-            acessibilidade, como o tamanho de texto escolhido nos botões A- e A+. Essa informação
-            fica no seu próprio dispositivo e não é enviada a terceiros nem usada para identificar
-            você.
+            O site utiliza o armazenamento local do navegador para lembrar preferências de
+            acessibilidade, como o tamanho do texto, e para registrar sua escolha sobre a medição de
+            audiência. Essas preferências ficam no seu dispositivo.
+          </p>
+          <p>
+            O Google Analytics somente é carregado depois que você seleciona “Aceitar métricas”. Ele
+            é utilizado para produzir estatísticas de navegação, como páginas visitadas, duração da
+            visita, tipo de dispositivo e localização aproximada. A configuração deste site mantém
+            desativados os sinais de publicidade e de personalização de anúncios.
+          </p>
+          <p>
+            Se você recusar, a tag do Google Analytics não é carregada. Sua decisão pode ser revista
+            a qualquer momento em “Preferências de cookies”, no rodapé. Ao revogar uma autorização,
+            o site desativa a medição e remove os cookies analíticos acessíveis neste domínio.
+          </p>
+          <p>
+            O tratamento realizado pelo Google está sujeito à sua própria{` `}
+            <a
+              href="https://policies.google.com/privacy?hl=pt-BR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline underline-offset-4"
+            >
+              Política de Privacidade
+            </a>
+            . Nenhuma informação clínica, exame, diagnóstico ou conteúdo de conversa com a
+            secretária é enviado deliberadamente ao Google Analytics por este site.
           </p>
 
           <h2>Direitos do titular</h2>

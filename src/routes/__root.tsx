@@ -14,9 +14,11 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { StickyCta } from "@/components/site/sticky-cta";
+import { CookieConsent } from "@/components/site/cookie-consent";
 import { WhatsAppCta } from "@/components/site/cta";
 import { doctor } from "@/lib/site";
 import { siteGraphJsonLd } from "@/lib/schema";
+import { googleTagBootstrap } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -150,6 +152,7 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: googleTagBootstrap }} />
         <HeadContent />
       </head>
       <body>
@@ -178,6 +181,7 @@ function RootComponent() {
       </main>
       <Footer />
       <StickyCta />
+      <CookieConsent />
     </QueryClientProvider>
   );
 }
