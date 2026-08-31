@@ -132,6 +132,7 @@ export const siteGraphJsonLd = {
       sameAs: [
         "http://lattes.cnpq.br/8994256434220774",
         "https://www.escavador.com/sobre/1671182/marco-aurelio-santos-cordeiro",
+        "https://www.instagram.com/dr.marco.cordeiro_cardio/",
       ],
       subjectOf: [
         {
