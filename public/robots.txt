@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://dr.marco.cordeirocardio.com.br/sitemap.xml
+Sitemap: https://dr-marco-aurelio-cardiologista.lovable.app/sitemap.xml
