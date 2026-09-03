@@ -16,7 +16,7 @@ import { Footer } from "@/components/site/footer";
 import { StickyCta } from "@/components/site/sticky-cta";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { WhatsAppCta } from "@/components/site/cta";
-import { doctor } from "@/lib/site";
+import { absoluteUrl, doctor } from "@/lib/site";
 import { siteGraphJsonLd } from "@/lib/schema";
 import { googleTagBootstrap } from "@/lib/analytics";
 
@@ -134,6 +134,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: `${import.meta.env.BASE_URL}favicon.png`,
         type: "image/png",
         sizes: "512x512",
+      },
+      {
+        rel: "describedby",
+        href: absoluteUrl("/llms.txt"),
+        type: "text/markdown",
       },
     ],
     scripts: [
