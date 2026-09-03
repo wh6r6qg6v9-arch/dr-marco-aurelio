@@ -36,17 +36,25 @@ const goias = {
 
 const brasil = { "@type": "Country", name: "Brasil" } as const;
 const teleconsultationCoverage = [anapolis, goiania, goias, brasil] as const;
+const cardiologySpecialty = {
+  "@type": "MedicalSpecialty",
+  "@id": "https://schema.org/Cardiovascular",
+  name: "Cardiologia",
+} as const;
 
 export const siteGraphJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
+      "@type": ["Person", "Physician"],
       "@id": IDS.doctor,
       url: absoluteUrl("/trajetoria"),
       name: doctor.structuredName,
       honorificPrefix: doctor.honorificPrefix,
       jobTitle: doctor.specialty,
+      medicalSpecialty: cardiologySpecialty,
+      telephone: contact.phoneTel,
+      areaServed: teleconsultationCoverage,
       description: doctor.tagline,
       mainEntityOfPage: { "@id": `${absoluteUrl("/trajetoria")}#webpage` },
       image: {
@@ -191,7 +199,7 @@ export const siteGraphJsonLd = {
         "Teleconsulta com cardiologista para Goiânia",
       ],
       serviceType: "Teleconsulta cardiológica",
-      category: { "@id": "https://schema.org/Cardiovascular", name: "Cardiologia" },
+      category: cardiologySpecialty,
       description:
         "Atendimento cardiológico por vídeo para pacientes de Anápolis, Goiânia, Goiás e de outras regiões do Brasil, com agendamento administrativo pela secretária.",
       provider: { "@id": IDS.doctor },
@@ -264,7 +272,7 @@ export function pageJsonLd({
         ? {
             lastReviewed: "2026-08-30",
             reviewedBy: { "@id": IDS.doctor },
-            specialty: { "@id": "https://schema.org/Cardiovascular", name: "Cardiologia" },
+            specialty: cardiologySpecialty,
           }
         : {}),
     },
