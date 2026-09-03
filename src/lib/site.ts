@@ -2,7 +2,12 @@ export const SITE_URL = "https://dr.marco.cordeirocardio.com.br";
 
 export function absoluteUrl(path = "/") {
   const normalizedPath = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
-  return `${SITE_URL}${normalizedPath}`;
+  const lastSegment = normalizedPath.split("/").at(-1) ?? "";
+  const isFilePath = /\.[a-z0-9]+$/i.test(lastSegment);
+  const canonicalPath =
+    normalizedPath === "/" || isFilePath ? normalizedPath : `${normalizedPath}/`;
+
+  return `${SITE_URL}${canonicalPath}`;
 }
 
 export const doctor = {

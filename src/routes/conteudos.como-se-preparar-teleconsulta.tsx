@@ -8,7 +8,7 @@ const article = articles.find((a) => a.slug === "como-se-preparar-teleconsulta")
 export const Route = createFileRoute("/conteudos/como-se-preparar-teleconsulta")({
   head: () => ({
     meta: [
-      { title: "Como se preparar para uma teleconsulta cardiológica" },
+      { title: "Como se preparar para uma teleconsulta cardiológica | Dr. Marco Cordeiro" },
       { name: "description", content: article.summary },
       { property: "og:title", content: article.title },
       { property: "og:description", content: article.summary },
@@ -32,9 +32,9 @@ function ArticlePage() {
       ]}
     >
       <p>
-        A teleconsulta permite conversar com o cardiologista sem precisar se deslocar. Uma preparação
-        simples ajuda a aproveitar melhor esse tempo, especialmente quando a consulta envolve revisão
-        de exames, medicamentos ou acompanhamento de uma condição já conhecida.
+        A teleconsulta permite conversar com o cardiologista sem precisar se deslocar. Uma
+        preparação simples ajuda a aproveitar melhor esse tempo, especialmente quando a consulta
+        envolve revisão de exames, medicamentos ou acompanhamento de uma condição já conhecida.
       </p>
 
       <h2>Escolha um lugar tranquilo</h2>
@@ -50,9 +50,9 @@ function ArticlePage() {
 
       <h2>Organize as informações que deseja discutir</h2>
       <p>
-        Antes da consulta, anote em poucas linhas o motivo principal do encontro e as dúvidas que não
-        quer esquecer. Também pode ser útil ter por perto uma lista atualizada dos medicamentos, com
-        os nomes, as doses e os horários em que são usados.
+        Antes da consulta, anote em poucas linhas o motivo principal do encontro e as dúvidas que
+        não quer esquecer. Também pode ser útil ter por perto uma lista atualizada dos medicamentos,
+        com os nomes, as doses e os horários em que são usados.
       </p>
       <ul>
         <li>Quando começou a preocupação ou mudança que motivou a consulta?</li>
@@ -77,16 +77,16 @@ function ArticlePage() {
       <h2>Peça ajuda se precisar</h2>
       <p>
         Um familiar ou cuidador pode ajudar a abrir o link, ajustar o aparelho ou acompanhar a
-        conversa, desde que você concorde com sua presença. Essa ajuda costuma ser especialmente útil
-        para pessoas com pouca familiaridade com chamadas de vídeo.
+        conversa, desde que você concorde com sua presença. Essa ajuda costuma ser especialmente
+        útil para pessoas com pouca familiaridade com chamadas de vídeo.
       </p>
 
       <h2>O que acontece durante a consulta</h2>
       <p>
-        A conversa começa pela sua história e pelo contexto atual. O médico pode revisar informações,
-        explicar hipóteses e discutir próximos passos. Dependendo da situação, pode recomendar exames
-        ou uma avaliação presencial. A adequação e os limites da teleconsulta são avaliados em cada
-        caso.
+        A conversa começa pela sua história e pelo contexto atual. O médico pode revisar
+        informações, explicar hipóteses e discutir próximos passos. Dependendo da situação, pode
+        recomendar exames ou uma avaliação presencial. A adequação e os limites da teleconsulta são
+        avaliados em cada caso.
       </p>
 
       <h2>Teleconsulta não é atendimento de emergência</h2>
@@ -98,8 +98,8 @@ function ArticlePage() {
         </strong>
       </p>
       <p>
-        O WhatsApp da secretária serve apenas para agendamento e orientações administrativas. Ele não
-        é monitorado como canal de urgência e não deve ser usado para solicitar diagnóstico ou
+        O WhatsApp da secretária serve apenas para agendamento e orientações administrativas. Ele
+        não é monitorado como canal de urgência e não deve ser usado para solicitar diagnóstico ou
         orientação clínica.
       </p>
     </ArticleLayout>

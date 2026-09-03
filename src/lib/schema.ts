@@ -323,7 +323,6 @@ export function articleJsonLd(article: Article) {
         dateModified: article.reviewedAt,
         inLanguage: "pt-BR",
         author: { "@id": IDS.doctor },
-        reviewedBy: { "@id": IDS.doctor },
         publisher: { "@id": IDS.doctor },
         copyrightHolder: { "@id": IDS.doctor },
         isPartOf: { "@id": IDS.website },

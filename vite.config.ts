@@ -7,8 +7,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 const base =
-  process.env.SITE_BASE_PATH ??
-  (process.env.GITHUB_ACTIONS ? "/dr-marco-aurelio/" : "/");
+  process.env.SITE_BASE_PATH ?? (process.env.GITHUB_ACTIONS ? "/dr-marco-aurelio/" : "/");
 
 export default defineConfig({
   nitro: process.env.GITHUB_ACTIONS ? false : undefined,
@@ -20,6 +19,7 @@ export default defineConfig({
       enabled: true,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
+      filter: (page) => page.path === "/" || page.path.endsWith("/"),
       failOnError: true,
     },
   },
